@@ -1231,7 +1231,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="services">
         <div class="container">
             <div class="section-title">
                 <span>What I Do</span>
@@ -1798,17 +1798,21 @@
         });
 
         // Services Stagger
-        gsap.from(".service-card", {
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 50%",
-                end: "bottom 70%",
-                scrub: true // <-- Fixed typo here
-            },
+        gsap.fromTo(".service-card", {
             y: 50,
             opacity: 0,
+        }, {
+            scrollTrigger: {
+                trigger: ".services",
+                start: "top 70%",
+                end: "bottom 80%",
+                markers: true,
+                scrub: true // <-- Fixed typo here
+            },
+            y: 0,
+            opacity: 1,
             duration: 0.8,
-            stagger: 1 // Note: With scrub active, this acts as a delay between cards relative to scroll progress
+            stagger: 1
         });
 
         // Portfolio Stagger
@@ -1913,29 +1917,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-  emailjs.init("wBeAxxs5zLiQLNm8r");
+        emailjs.init("wBeAxxs5zLiQLNm8r");
 
-  document
-    .getElementById("contact-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
+        document
+            .getElementById("contact-form")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
 
-      emailjs
-        .sendForm(
-          "service_e7hlfih",
-          "template_1c1uxwn",
-          this
-        )
-        .then(() => {
-          alert("Message Sent Successfully!");
-          this.reset();
-        })
-        .catch((error) => {
-          alert("Failed to send message");
-          console.log(error);
-        });
-    });
-</script>
+                emailjs
+                    .sendForm(
+                        "service_e7hlfih",
+                        "template_1c1uxwn",
+                        this
+                    )
+                    .then(() => {
+                        alert("Message Sent Successfully!");
+                        this.reset();
+                    })
+                    .catch((error) => {
+                        alert("Failed to send message");
+                        console.log(error);
+                    });
+            });
+    </script>
 
 </body>
 
