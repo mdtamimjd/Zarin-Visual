@@ -531,7 +531,7 @@
             gap: 30px;
         }
 
-        .service-card {
+        /* .service-card {
             background: var(--card-bg);
             padding: 40px 30px;
             border-radius: 20px;
@@ -546,6 +546,50 @@
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
             border-color: var(--accent-color);
+        } */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+            color: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+
+        }
+
+        .service-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+            z-index: 0;
+        }
+
+        .service-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 1;
+        }
+
+        .service-card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.15);
+            filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.03);
         }
 
         .service-icon {
@@ -1232,71 +1276,78 @@
 
     <!-- Services Section -->
     <section id="services" class="services">
-    <div class="container">
-        <div class="section-title">
-            <span>What I Offer</span>
-            <h2>My Services</h2>
+        <div class="container">
+            <div class="section-title">
+                <span>What I Offer</span>
+                <h2>My Services</h2>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- Card 1 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=1200"
+                        alt="Logo Design">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Logo Design</h3>
+                    <p>Professional and memorable logo designs that represent your brand identity.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=1200" alt="Thumbnail Design">
+                    <div class="service-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Thumbnail Design</h3>
+                    <p>Eye-catching YouTube and social media thumbnails that increase clicks and engagement.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=1200" alt="Social Media">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Social Media Poster</h3>
+                    <p>Creative posters and promotional graphics for Facebook, Instagram, and other platforms.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=1200" alt="Business Card">
+                    <div class="service-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Business Card Design</h3>
+                    <p>Modern and professional business card designs to enhance your brand image.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" alt="Product Poster">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Product Poster Design</h3>
+                    <p>Product promotional graphics tailored to your business needs.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card hover-trigger">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200" alt="Flyer Design">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Flyer & Poster Design</h3>
+                    <p>High-quality flyers, posters, and marketing materials for events and businesses.</p>
+                </div>
+
+            </div>
         </div>
-
-        <div class="services-grid">
-
-            <!-- Card 1 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>Logo Design</h3>
-                <p>Professional and memorable logo designs that represent your brand identity.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-image"></i>
-                </div>
-                <h3>Thumbnail Design</h3>
-                <p>Eye-catching YouTube and social media thumbnails that increase clicks and engagement.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-share-alt"></i>
-                </div>
-                <h3>Social Media Poster</h3>
-                <p>Creative posters and promotional graphics for Facebook, Instagram, and other platforms.</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-id-card"></i>
-                </div>
-                <h3>Business Card Design</h3>
-                <p>Modern and professional business card designs to enhance your brand image.</p>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-ad"></i>
-                </div>
-                <h3>Product Poster Design</h3>
-                <p>Product promotional graphics tailored to your business needs.</p>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="service-card hover-trigger">
-                <div class="service-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-                <h3>Flyer & Poster Design</h3>
-                <p>High-quality flyers, posters, and marketing materials for events and businesses.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
+    </section>
     <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="container">
@@ -1307,8 +1358,7 @@
             <div class="portfolio-grid">
                 <!-- Project 1 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="1.jpeg"
-                        alt="Coffee Branding" loading="lazy">
+                    <img src="1.jpeg" alt="Coffee Branding" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Logo Design</h3>
                         <p>Branding / Identity</p>
@@ -1316,8 +1366,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="2.jpeg"
-                        alt="Fashion Campaign" loading="lazy">
+                    <img src="2.jpeg" alt="Fashion Campaign" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Show Your Brand</h3>
                         <p>All Sector Logo Identity</p>
@@ -1325,8 +1374,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="3.jpeg"
-                        alt="App UI" loading="lazy">
+                    <img src="3.jpeg" alt="App UI" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Social Media Poster</h3>
                         <p>Facebook/Instagram/Website Poster Design</p>
@@ -1334,8 +1382,7 @@
                 </div>
                 <!-- Project 4 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="4.jpeg"
-                        alt="Cosmetics Packaging" loading="lazy">
+                    <img src="4.jpeg" alt="Cosmetics Packaging" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Cosmetics Pack</h3>
                         <p>Packaging Design</p>
@@ -1343,8 +1390,7 @@
                 </div>
                 <!-- Project 5 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="5.jpeg"
-                        alt="Restaurant Social" loading="lazy">
+                    <img src="5.jpeg" alt="Restaurant Social" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Natural Social Poster</h3>
                         <p>Social Media</p>
@@ -1352,8 +1398,7 @@
                 </div>
                 <!-- Project 6 -->
                 <div class="portfolio-item hover-trigger">
-                    <img src="6.jpeg"
-                        alt="Luxury Brand" loading="lazy">
+                    <img src="6.jpeg" alt="Luxury Brand" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Luxury Identity</h3>
                         <p>Branding</p>
@@ -1423,7 +1468,7 @@
                     <!-- Review 1 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="client-img">
+                            <img src="r1.jpg" alt="Client" class="client-img">
                             <div class="stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -1431,15 +1476,15 @@
                             <p class="quote">"Outstanding designer! Delivered beyond expectations. The branding work was
                                 exactly what we needed to reposition our company."</p>
                             <div class="client-info">
-                                <h4>Sarah Johnson</h4>
-                                <span>CEO, TechFlow</span>
+                                <h4>Sohel hawlader</h4>
+                                <span>CEO, S Back Music</span>
                             </div>
                         </div>
                     </div>
                     <!-- Review 2 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="client-img">
+                            <img src="r2.jpg" alt="Client" class="client-img">
                             <div class="stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
@@ -1447,7 +1492,7 @@
                             <p class="quote">"The attention to detail is incredible. Nexora Studio transformed our
                                 social media presence completely. Highly recommended!"</p>
                             <div class="client-info">
-                                <h4>Michael Chen</h4>
+                                <h4>Othoi</h4>
                                 <span>Marketing Director, Urban Wear</span>
                             </div>
                         </div>
@@ -1557,7 +1602,7 @@
                         <a href="https://www.facebook.com/share/1Dn98Lddti/" target="_blank" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.behance.net/ragethunder1" target="_blank" class="social-link"><i
+                        <a href="https://www.behance.net/Joyeeta_creative" target="_blank" class="social-link"><i
                                 class="fab fa-behance"></i></a>
                         <a href="https://www.linkedin.com/in/tasnim-zarin-206b52215?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                             target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
